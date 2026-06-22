@@ -26,7 +26,7 @@
 
 | Light Mode | Dark Mode |
 |:---:|:---:|
-| ![Light mode preview](<img width="1918" height="976" alt="Screenshot 2026-06-22 165255" src="https://github.com/user-attachments/assets/5d44e1ab-6cf1-40a9-87a9-b5b5c166fb31" />) | ![Dark mode preview](<img width="1918" height="991" alt="Screenshot 2026-06-22 165315" src="https://github.com/user-attachments/assets/11212b0e-3504-4c93-ba75-cc67f2da0e74" />) |
+| <img width="1918" height="976" alt="Screenshot 2026-06-22 165255" src="https://github.com/user-attachments/assets/5d44e1ab-6cf1-40a9-87a9-b5b5c166fb31" /> | <img width="1918" height="991" alt="Screenshot 2026-06-22 165315" src="https://github.com/user-attachments/assets/11212b0e-3504-4c93-ba75-cc67f2da0e74" /> |
 
 > **Replace these placeholders** with real screenshots once your site is live. Use your browser's screenshot tool or [screely.com](https://screely.com) for a nice frame.
 
