@@ -146,7 +146,7 @@ This project is open-source under the [MIT License](LICENSE).
 Just open the file in your browser — no server needed:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
+git clone https://github.com/sarthak-1285/prompt-like-a-pro.git
 cd YOUR_REPO
 open index.html   # macOS
 # or: start index.html  (Windows)
