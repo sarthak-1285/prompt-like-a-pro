@@ -1,4 +1,4 @@
-<img width="1918" height="991" alt="Screenshot 2026-06-22 165315" src="https://github.com/user-attachments/assets/2f1494f5-6ea3-4889-902c-1e63aa026fa1" /><div align="center">
+
 
 # 🧠 Prompt Like a Pro
 
