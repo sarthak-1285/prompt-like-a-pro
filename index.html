@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Like a Pro: The Ultimate Guide to Getting What You Want from AI</title>
+    <meta name="description" content="Master the art of AI prompting with this interactive guide. Learn the 5 core pillars, advanced techniques, 50+ ready-to-use prompts, and avoid common mistakes.">
+    <meta name="keywords" content="AI prompting, prompt engineering, ChatGPT, Claude, LLM, prompt guide, how to prompt AI">
+    <meta name="author" content="ProPrompt">
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prompt Like a Pro: The Ultimate AI Prompting Guide">
+    <meta property="og:description" content="Master the art of AI prompting. 5 core pillars, advanced techniques, 50+ ready-to-use prompts & an interactive quiz.">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630/4f46e5/ffffff?text=Prompt+Like+a+Pro">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prompt Like a Pro">
+    <meta name="twitter:description" content="Master AI prompting with 5 core pillars, advanced techniques, and 50+ ready-to-use prompts.">
+    <!-- Emoji Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧠</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        html.dark body {
+            background-color: #0f172a;
+            color: #f1f5f9;
+        }
+
+        /* Dark Mode Overrides */
+        html.dark .bg-white {
+            background-color: #1e293b;
+        }
+
+        html.dark .text-slate-600 {
+            color: #cbd5e1;
+        }
+
+        html.dark .text-slate-700 {
+            color: #94a3b8;
+        }
+
+        html.dark .border-slate-200 {
+            border-color: #334155;
+        }
+
+        html.dark .border-slate-300 {
+            border-color: #475569;
+        }
+
+        html.dark .bg-slate-50 {
+            background-color: #1e293b;
+        }
+
+        html.dark .bg-orange-50 {
+            background-color: #1e1210;
+        }
+
+        html.dark .bg-emerald-50 {
+            background-color: #0f2e1f;
+        }
+
+        .pro-tip {
+            border-left: 4px solid #10b981;
+            background-color: #ecfdf5;
+            color: #047857;
+        }
+
+        html.dark .pro-tip {
+            background-color: #0f2e1f;
+            color: #86efac;
+            border-left-color: #10b981;
+        }
+
+        .warning {
+            border-left: 4px solid #f97316;
+            background-color: #fff7ed;
+            color: #c2410c;
+        }
+
+        html.dark .warning {
+            background-color: #1e1210;
+            color: #fed7aa;
+            border-left-color: #f97316;
+        }
+
+        .prompt-block {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            border-radius: 12px;
+            padding: 3rem 1.5rem 1.5rem;
+            position: relative;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.25);
+        }
+
+        html.dark .prompt-block {
+            background-color: #0f172a;
+        }
+
+        .prompt-block pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #334155;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            background-color: #4f46e5;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #4f46e5, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sidebar a:hover {
+            background-color: #e2e8f0;
+            transform: translateX(4px);
+            transition: transform 0.2s;
+        }
+
+        html.dark .sidebar a:hover {
+            background-color: #334155;
+        }
+
+        .sidebar a.active {
+            background-color: #4f46e5;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+        }
+
+        .chapter-heading {
+            background: linear-gradient(to right, #e0e7ff, #fbcfe8);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+        }
+
+        html.dark .chapter-heading {
+            background: linear-gradient(to right, #312e81, #7c2d42);
+        }
+
+        .pillar-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        html.dark .pillar-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+
+        .pillar-icon {
+            background: linear-gradient(to right, #4f46e5, #ec4899);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .quiz-question {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        html.dark .quiz-question {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+
+        .quiz-options label {
+            display: block;
+            background-color: #f8fafc;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        html.dark .quiz-options label {
+            background-color: #0f172a;
+            border-color: #334155;
+        }
+
+        .quiz-options label:hover {
+            background-color: #e0e7ff;
+            border-color: #4f46e5;
+        }
+
+        html.dark .quiz-options label:hover {
+            background-color: #312e81;
+        }
+
+        .quiz-options input[type="radio"] {
+            display: none;
+        }
+
+        .quiz-options input[type="radio"]:checked + label {
+            background-color: #4f46e5;
+            color: white;
+            border-color: #4338ca;
+        }
+
+        .submit-btn {
+            background-color: #10b981;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .submit-btn:hover {
+            background-color: #059669;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(to right, #4f46e5, #ec4899);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 50;
+            font-size: 1.5rem;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        .dark-mode-toggle {
+            background-color: #334155;
+            color: #cbd5e1;
+            border: 1px solid #475569;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        .search-box {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            background-color: white;
+        }
+
+        html.dark .search-box input {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .hidden-section.visible {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-badge {
+            display: inline-block;
+            background: linear-gradient(to right, #4f46e5, #ec4899);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .example-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        html.dark .example-card {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+
+        .mobile-menu-open {
+            overflow: hidden;
+        }
+
+        .sidebar {
+            transition: transform 0.3s ease;
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e2e8f0;
+            background-color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        html.dark .filter-btn {
+            background-color: #1e293b;
+            border-color: #334155;
+            color: #f1f5f9;
+        }
+
+        .filter-btn.active {
+            background-color: #4f46e5;
+            color: white;
+            border-color: #4f46e5;
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Prompt sub-section heading */
+        .prompt-sub-heading {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #64748b;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+
+        html.dark .prompt-sub-heading {
+            color: #94a3b8;
+            border-bottom-color: #334155;
+        }
+
+        /* Reading Progress Bar */
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(to right, #4f46e5, #ec4899);
+            z-index: 9999;
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* Mobile Sidebar Backdrop */
+        #sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 30;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div id="reading-progress"></div>
+    <!-- Mobile Sidebar Backdrop -->
+    <div id="sidebar-backdrop"></div>
+    <div class="flex flex-col lg:flex-row min-h-screen">
+        <!-- Hamburger Menu Button (Mobile) -->
+        <button id="menu-btn" aria-label="Open navigation menu" class="lg:hidden fixed top-4 left-4 z-50 bg-indigo-600 text-white p-2 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="4" y1="12" x2="20" y2="12"></line>
+                <line x1="4" y1="18" x2="20" y2="18"></line>
+            </svg>
+        </button>
+
+        <!-- Sidebar -->
+        <aside id="sidebar" class="lg:w-64 w-80 bg-slate-50 border-r border-slate-200 overflow-y-auto sticky top-0 h-screen z-40 lg:z-0 sidebar" style="transition: transform 0.3s ease;">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold gradient-text">ProPrompt</h1>
+                    <button id="dark-toggle" class="dark-mode-toggle lg:hidden">
+                        🌙
+                    </button>
+                </div>
+
+                <button id="dark-toggle-lg" class="dark-mode-toggle hidden lg:flex w-full justify-center mb-6">
+                    <span id="theme-icon">🌙</span>
+                    <span>Dark Mode</span>
+                </button>
+
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search sections..." class="w-full">
+                </div>
+
+                <nav id="table-of-contents" class="space-y-1">
+                    <a href="#intro" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all active">Introduction</a>
+                    <a href="#fundamentals" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Fundamentals</a>
+                    <a href="#pillars" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">5 Pillars</a>
+                    <a href="#advanced" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Advanced Techniques</a>
+                    <a href="#mistakes" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Common Mistakes</a>
+                    <a href="#examples" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Real-World Examples</a>
+                    <a href="#quiz" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Quiz</a>
+                    <a href="#bonus" class="block px-4 py-2 rounded-lg font-medium hover:bg-slate-200 transition-all">Power Prompts</a>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-y-auto">
+            <div class="max-w-4xl mx-auto p-6 lg:p-12">
+
+                <!-- Hero Section -->
+                <section id="intro" class="mb-20 scroll-mt-24 fade-in-up">
+                    <div class="mb-8">
+                        <h1 class="text-5xl lg:text-6xl font-bold mb-4 gradient-text">Prompt Like a Pro</h1>
+                        <p class="text-xl text-slate-600 mb-6">Master the art of communicating with AI. Learn the exact framework to unlock better responses and achieve your goals faster.</p>
+                        
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="stat-badge">100+ Prompts</span>
+                            <span class="stat-badge">5 Core Pillars</span>
+                            <span class="stat-badge">Real Examples</span>
+                        </div>
+
+                        <p class="text-lg text-slate-700 font-semibold mb-4">What you'll learn:</p>
+                        <ul class="space-y-2 text-slate-600">
+                            <li>✅ The science behind effective prompts</li>
+                            <li>✅ 5 core pillars for crafting powerful requests</li>
+                            <li>✅ Real-world examples and use cases</li>
+                            <li>✅ Advanced techniques for complex tasks</li>
+                            <li>✅ Common mistakes and how to avoid them</li>
+                            <li>✅ 50+ ready-to-use power prompts</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Fundamentals Section -->
+                <section id="fundamentals" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">The Fundamentals</h2></div>
+                    <p class="mb-8 text-slate-600">Before diving into the 5 pillars, understand why prompting matters and how AI interprets your requests.</p>
+
+                    <div class="pro-tip p-6 rounded-lg mb-8">
+                        <h3 class="font-bold mb-2">💡 Core Concept</h3>
+                        <p>An AI model is a prediction machine. The better your prompt, the better it can predict what you want. Think of it like giving directions: vague directions lead to wrong turns, but detailed directions get you where you need to go.</p>
+                    </div>
+
+                    <h3 class="text-2xl font-semibold mt-8 mb-4 text-indigo-700">Why Prompting Matters</h3>
+                    <p class="mb-6 text-slate-600">Every AI model has limitations and capabilities. A well-crafted prompt:</p>
+                    <ul class="space-y-3 mb-8 text-slate-600">
+                        <li>🎯 <strong>Reduces ambiguity</strong> – Makes your intent crystal clear</li>
+                        <li>⚡ <strong>Saves time</strong> – Get accurate results on the first try instead of multiple iterations</li>
+                        <li>📊 <strong>Improves quality</strong> – Leads to more relevant, useful, and accurate outputs</li>
+                        <li>💡 <strong>Unlocks capabilities</strong> – Reveals what the AI is actually capable of doing</li>
+                    </ul>
+                </section>
+
+                <!-- 5 Pillars Section -->
+                <section id="pillars" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">The 5 Pillars of Effective Prompting</h2></div>
+                    <p class="mb-12 text-slate-600">Every great prompt contains these 5 elements. Master them, and you'll get exceptional results.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                        <!-- Pillar 1 -->
+                        <div class="pillar-card fade-in-up">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="pillar-icon">1</div>
+                                <h3 class="text-xl font-bold">Role/Context</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4">Define who the AI should be or what context it should operate in.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Act as a [profession/expert]. You have [years] of experience...</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 2 -->
+                        <div class="pillar-card fade-in-up">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="pillar-icon">2</div>
+                                <h3 class="text-xl font-bold">Task</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4">Clearly state what you want the AI to do. Be specific and direct.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Write/Analyze/Create/Generate [specific thing]</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 3 -->
+                        <div class="pillar-card fade-in-up">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="pillar-icon">3</div>
+                                <h3 class="text-xl font-bold">Context</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4">Provide background information and constraints for better outputs.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Background: [situation] | Audience: [who] | Constraints: [limits]</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 4 -->
+                        <div class="pillar-card fade-in-up">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="pillar-icon">4</div>
+                                <h3 class="text-xl font-bold">Format</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4">Specify how you want the output structured (list, table, JSON, etc).</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Return as: [list/table/JSON/essay/bullet points]</code></pre>
+                            </div>
+                        </div>
+
+                        <!-- Pillar 5 -->
+                        <div class="pillar-card fade-in-up md:col-span-2">
+                            <div class="flex items-start gap-4 mb-4">
+                                <div class="pillar-icon">5</div>
+                                <h3 class="text-xl font-bold">Tone/Style</h3>
+                            </div>
+                            <p class="text-slate-600 mb-4">Define the voice and style of the response (professional, casual, humorous, etc).</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Tone: [professional/casual/humorous/technical]. Style: [conversational/academic/storytelling]</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="example-card p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4">📝 Complete Example</h3>
+                        <div class="bg-white bg-opacity-10 p-4 rounded-lg mb-4">
+                            <p class="font-mono text-sm">
+                                "Act as a friendly marketing copywriter with 10+ years of experience. Write a 100-word product description for a sustainable water bottle aimed at eco-conscious millennials. Include the key benefits (durable, BPA-free, keeps drinks cold for 24 hours). Make it conversational and inspiring. Return as a single paragraph."
+                            </p>
+                        </div>
+                        <p class="text-sm opacity-90">✨ This prompt includes all 5 pillars: Role → Task → Context → Format → Tone</p>
+                    </div>
+                </section>
+
+                <!-- Advanced Techniques -->
+                <section id="advanced" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">Advanced Techniques</h2></div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-700">Chain of Thought Prompting</h3>
+                            <p class="text-slate-600 mb-4">Ask the AI to show its reasoning step-by-step. This often improves accuracy for complex tasks.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Let's break this down step by step. First, [step 1]. Then, [step 2]. Finally, [step 3]. Answer: </code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-700">Few-Shot Prompting</h3>
+                            <p class="text-slate-600 mb-4">Provide examples of what you want. The AI learns the pattern from your examples.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Example 1:
+Input: [example input]
+Output: [example output]
+
+Example 2:
+Input: [example input]
+Output: [example output]
+
+Now, for this input: [your input]
+Output:</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-700">Role-Based Prompting</h3>
+                            <p class="text-slate-600 mb-4">Ask the AI to adopt a specific persona or expertise level for better responses.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>You are a [specific role] who specializes in [domain]. You have won awards for [achievement]. Answer this question: [question]</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-700">Temperature & Creativity Control</h3>
+                            <p class="text-slate-600 mb-4">Control how creative or predictable the AI should be in its response.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Generate 5 VERY creative and unconventional ideas for [topic]. Push the boundaries. Be radical.</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-4 text-indigo-700">Constraints & Limitations</h3>
+                            <p class="text-slate-600 mb-4">Set specific constraints to narrow down the solution space and get more focused outputs.</p>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Create a [task] with these constraints: 
+- Maximum [X] words
+- Must include [Y]
+- Cannot mention [Z]
+- For [specific audience]</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Common Mistakes -->
+                <section id="mistakes" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">Common Mistakes to Avoid</h2></div>
+
+                    <div class="space-y-6">
+                        <div class="warning p-6 rounded-lg">
+                            <h3 class="font-bold mb-2">❌ Being Too Vague</h3>
+                            <p class="mb-3"><strong>Bad:</strong> "Write me something about marketing"</p>
+                            <p><strong>Good:</strong> "Write a 300-word LinkedIn post about 5 AI marketing trends for 2025, aimed at marketing managers. Make it professional but engaging."</p>
+                        </div>
+
+                        <div class="warning p-6 rounded-lg">
+                            <h3 class="font-bold mb-2">❌ Not Providing Enough Context</h3>
+                            <p class="mb-3"><strong>Bad:</strong> "Analyze this website"</p>
+                            <p><strong>Good:</strong> "Analyze my e-commerce website for UX improvements. Focus on the checkout flow. I'm targeting busy professionals aged 25-45. What are the top 3 friction points?"</p>
+                        </div>
+
+                        <div class="warning p-6 rounded-lg">
+                            <h3 class="font-bold mb-2">❌ Forgetting to Specify Format</h3>
+                            <p class="mb-3"><strong>Bad:</strong> "Give me content ideas"</p>
+                            <p><strong>Good:</strong> "Give me 10 content ideas. Return as a numbered list with 1-line descriptions."</p>
+                        </div>
+
+                        <div class="warning p-6 rounded-lg">
+                            <h3 class="font-bold mb-2">❌ Expecting Perfection on First Try</h3>
+                            <p class="mb-3">Great results often come from iteration. Use follow-up prompts like: "Make it more concise", "Add examples", "Simplify the language", or "Make it sound more professional".</p>
+                        </div>
+
+                        <div class="warning p-6 rounded-lg">
+                            <h3 class="font-bold mb-2">❌ Not Specifying Your Audience</h3>
+                            <p class="mb-3"><strong>Bad:</strong> "Explain machine learning"</p>
+                            <p><strong>Good:</strong> "Explain machine learning to a complete beginner (no technical background). Use simple analogies and real-world examples."</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Real-World Examples -->
+                <section id="examples" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">Real-World Examples</h2></div>
+
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-700">💼 Professional: Email Writing</h3>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Write a professional email to a client about a project delay. The delay is 2 weeks due to unexpected technical issues. We've identified solutions and recovery is on track. Tone should be apologetic but confident. Include: problem, solution, timeline. Length: 200 words max.</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-700">📚 Educational: Learning Complex Topics</h3>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Explain quantum computing in a way a high school student would understand. Use 3 analogies from everyday life. Then, explain how quantum computers differ from regular computers. Format: 3 paragraphs, simple language.</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-700">🚀 Creative: Brainstorming</h3>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Generate 15 unconventional product names for a coffee brand targeting Gen Z health-conscious consumers. Be creative and memorable. Avoid generic terms. Format: numbered list with 1-line descriptions for each.</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-700">🔧 Technical: Coding Help</h3>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>I'm trying to create a Python function that filters a list of dictionaries. Each dict has 'name', 'age', 'salary' keys. I need to return only entries where age > 25 AND salary > 50000. Show me a clean, commented solution with an example.</code></pre>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-xl font-semibold mb-3 text-indigo-700">📊 Data Analysis: Extract Insights</h3>
+                            <div class="prompt-block my-4">
+                                <button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                                <pre><code>Analyze this quarterly sales data [paste data]. Identify: top 3 performing products, biggest growth opportunities, and 2 concerning trends. Format as: bullet points with supporting numbers.</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section id="quiz" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">Test Your Knowledge</h2></div>
+                    <p class="mb-8 text-slate-600">Answer these 5 questions to see how well you've mastered prompting. Be honest with yourself!</p>
+
+                    <form id="prompt-quiz">
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-4">1. What is the most important first step in crafting a prompt?</p>
+                            <div class="quiz-options">
+                                <input type="radio" id="q1a1" name="q1" value="a"><label for="q1a1">a) Make it as long as possible</label>
+                                <input type="radio" id="q1a2" name="q1" value="b"><label for="q1a2">b) Define the role or context for the AI</label>
+                                <input type="radio" id="q1a3" name="q1" value="c"><label for="q1a3">c) Ask for multiple solutions</label>
+                            </div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-4">2. What should you do if the AI's first response isn't quite right?</p>
+                            <div class="quiz-options">
+                                <input type="radio" id="q2a1" name="q2" value="a"><label for="q2a1">a) Give up and try a different AI tool</label>
+                                <input type="radio" id="q2a2" name="q2" value="b"><label for="q2a2">b) Assume the AI is not capable of the task</label>
+                                <input type="radio" id="q2a3" name="q2" value="c"><label for="q2a3">c) Use a follow-up prompt to refine the answer</label>
+                            </div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-4">3. Why is specifying your audience important in a prompt?</p>
+                            <div class="quiz-options">
+                                <input type="radio" id="q3a1" name="q3" value="a"><label for="q3a1">a) It's not really important</label>
+                                <input type="radio" id="q3a2" name="q3" value="b"><label for="q3a2">b) Because different audiences need different language, depth, and tone</label>
+                                <input type="radio" id="q3a3" name="q3" value="c"><label for="q3a3">c) To make the AI talk slower</label>
+                            </div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-4">4. What's an example of an effective constraint in a prompt?</p>
+                            <div class="quiz-options">
+                                <input type="radio" id="q4a1" name="q4" value="a"><label for="q4a1">a) "Write something about marketing"</label>
+                                <input type="radio" id="q4a2" name="q4" value="b"><label for="q4a2">b) "Write a 150-word email for busy executives about why they need AI tools"</label>
+                                <input type="radio" id="q4a3" name="q4" value="c"><label for="q4a3">c) "Write whatever you want"</label>
+                            </div>
+                        </div>
+                        <div class="quiz-question">
+                            <p class="font-semibold mb-4">5. What does chain-of-thought prompting ask the AI to do?</p>
+                            <div class="quiz-options">
+                                <input type="radio" id="q5a1" name="q5" value="a"><label for="q5a1">a) Use a chain to think physically</label>
+                                <input type="radio" id="q5a2" name="q5" value="b"><label for="q5a2">b) Show its reasoning step-by-step</label>
+                                <input type="radio" id="q5a3" name="q5" value="c"><label for="q5a3">c) Think only one thought at a time</label>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn mt-4">See Your Score!</button>
+                    </form>
+                    <div id="quiz-results" class="mt-6 hidden p-6 rounded-lg bg-emerald-50"></div>
+                </section>
+
+                <!-- Power Prompts Section -->
+                <section id="bonus" class="mb-20 scroll-mt-24">
+                    <div class="chapter-heading mb-6"><h2 class="text-3xl font-bold">100 Power Prompts Library</h2></div>
+                    <p class="mb-6 text-slate-600">Copy and adapt these prompts for your needs. Replace <strong>[bracketed items]</strong> with your specifics. Each category is divided into focused sub-sections.</p>
+
+                    <!-- Filter Buttons -->
+                    <div class="mb-8">
+                        <p class="font-semibold mb-4 text-slate-700">Filter by category:</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="filter-btn active" onclick="filterPrompts('all', this)">All</button>
+                            <button class="filter-btn" onclick="filterPrompts('creativity', this)">🎨 Creativity</button>
+                            <button class="filter-btn" onclick="filterPrompts('productivity', this)">⚡ Productivity</button>
+                            <button class="filter-btn" onclick="filterPrompts('learning', this)">📚 Learning</button>
+                            <button class="filter-btn" onclick="filterPrompts('technical', this)">💻 Technical</button>
+                            <button class="filter-btn" onclick="filterPrompts('business', this)">💼 Business</button>
+                        </div>
+                    </div>
+
+                    <!-- Creativity & Brainstorming Prompts -->
+                    <h3 class="text-2xl font-semibold mt-10 mb-2 text-indigo-700 category-header" data-category="creativity">🎨 Creativity & Brainstorming</h3>
+                    <div class="category-group" data-category="creativity">
+                        <h4 class="prompt-sub-heading">✍️ Writing & Poetry</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate 10 unconventional names for a new brand of [product type]. Be creative, memorable, and avoid generic terms. Format: numbered list with meanings.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a short poem about [topic] in the style of [poet]. The poem should evoke [emotion]. Length: [X] lines.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a [haiku/sonnet/free verse] about [theme]. Focus on [imagery/emotion/metaphor]. Make it [vivid/melancholic/uplifting].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a compelling short story opening (first 3 paragraphs) set in [setting]. Main character: [description]. Hook the reader immediately.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a [children's story/fable/fairy tale] about [theme or lesson]. Include a protagonist, conflict, and resolution. Length: [X words].</code></pre></div>
+                        <h4 class="prompt-sub-heading">📖 Storytelling & Fiction</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Brainstorm 5 plot ideas for a [genre] story where the main twist is [twist]. Make them unexpected and original.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Develop a character profile for [character type]. Include: backstory, motivation, strengths, flaws, speech pattern, and a secret.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a dramatic dialogue between [Character A] and [Character B] who disagree about [topic]. Show, don't tell, the tension.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a detailed world-building document for a [genre] story. Cover: geography, society, rules/magic, history, and core conflicts.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Rewrite this scene: [paste scene]. Make it more [tense/emotional/humorous]. Change the POV to [first/third] person.</code></pre></div>
+                        <h4 class="prompt-sub-heading">📣 Branding & Marketing Copy</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create 5 catchy slogans for a [company type/product]. Make them memorable, fun, and on-brand for [target audience].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a brand story for [company/product]. Cover: origin, mission, values, and why it matters to [target customer].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create 10 Instagram caption ideas for [brand/product]. Mix educational, inspirational, and promotional. Include hashtag suggestions.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a compelling product description for [product]. Highlight [key benefit 1] and [key benefit 2]. Audience: [who]. Tone: [tone]. Max 100 words.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate a tagline and 3 supporting messaging pillars for [brand/product]. Keep each pillar to one punchy sentence.</code></pre></div>
+                        <h4 class="prompt-sub-heading">💡 Ideation & Brainstorming</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate 20 creative date ideas that are [theme, e.g., budget-friendly, adventurous, romantic] and suitable for [relationship stage].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Suggest 10 unique gift ideas for someone who [interests/hobbies]. Budget: [amount]. Avoid typical gifts and explain why each is special.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Give me 15 creative ways to [achieve goal/solve problem]. Push beyond obvious solutions. Rate each by effort and impact.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Brainstorm 10 names for a [product/company/project] that convey [values/feeling]. Explain the meaning behind each.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate 5 'what if' scenarios for [industry/topic] that could disrupt the status quo. Explain the ripple effects of each.</code></pre></div>
+                    </div>
+
+                    <!-- Productivity & Efficiency Prompts -->
+                    <h3 class="text-2xl font-semibold mt-10 mb-2 text-indigo-700 category-header" data-category="productivity">⚡ Productivity & Efficiency</h3>
+                    <div class="category-group" data-category="productivity">
+                        <h4 class="prompt-sub-heading">📬 Communication</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Draft a professional email to [recipient] about [topic]. Tone: [professional/friendly]. Must include: [key points]. Length: 200 words max.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a follow-up email after [meeting/interview/call] with [person/company]. Recap key points, next steps, and a clear CTA.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me say no to [request] professionally and politely. Maintain the relationship and offer an alternative where possible.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a Slack message to [team/person] announcing [update/change]. Keep it brief, positive, and action-oriented.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Draft a LinkedIn message to reach out to [type of person] for [purpose]. Be genuine, not salesy. Max 100 words.</code></pre></div>
+                        <h4 class="prompt-sub-heading">📅 Planning & Scheduling</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Summarize the following text into 5 key bullet points: [paste text]. Each point should be 1 line and capture the essence.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a weekly schedule for [goal/project] that takes [X hours/days]. Break it into daily tasks. Be realistic and specific.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a 1-hour meeting agenda for [meeting type] with [X participants]. Include: topics, time allocations, and discussion questions.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Build a [30/60/90]-day onboarding plan for a new [role/position]. Include: learning goals, key relationships, and success metrics.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a realistic project timeline for [project]. I have [X weeks/months]. Break into milestones with clear dependencies.</code></pre></div>
+                        <h4 class="prompt-sub-heading">✅ Task Management</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a checklist for [project/task] that includes all necessary steps from start to finish. Organize by phases.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me prioritize this list of tasks: [paste tasks]. Use the Eisenhower Matrix (urgent/important quadrants).</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I'm overwhelmed by [situation]. Help me break it into the smallest possible next steps. Start with what I can do in 5 minutes.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a Standard Operating Procedure (SOP) for [recurring task/process]. Include steps, owner, and what 'done well' looks like.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Review my to-do list: [paste list]. Identify tasks I should delegate, automate, or eliminate entirely. Explain why for each.</code></pre></div>
+                        <h4 class="prompt-sub-heading">🧘 Focus & Habits</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Suggest 5 time-management techniques specifically for [profession/role]. Explain how each works and why it's effective.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a morning routine for [person type, e.g., remote worker, parent, student]. Duration: [X minutes]. Goal: [productivity/clarity/energy].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me build a habit of [habit]. I've tried before and failed because [reason]. Give me a 30-day starter plan with accountability checkpoints.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I have [X hours] to deep-work on [task]. Create a focused session plan with time blocks, breaks, and distraction-avoidance strategies.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Analyze my workflow: [describe workflow]. Identify the top 3 bottlenecks and suggest automation or process improvements.</code></pre></div>
+                    </div>
+
+                    <!-- Learning & Education Prompts -->
+                    <h3 class="text-2xl font-semibold mt-10 mb-2 text-indigo-700 category-header" data-category="learning">📚 Learning & Education</h3>
+                    <div class="category-group" data-category="learning">
+                        <h4 class="prompt-sub-heading">🔍 Explaining Concepts</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Explain [complex topic] to me like I'm 10 years old. Use only simple words and 2-3 everyday analogies. Length: [X sentences].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Explain [topic] at three levels: beginner, intermediate, and expert. Each explanation in 3 sentences.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>What are the most common misconceptions about [topic]? List 5, explain why people believe them, and give the correct understanding.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Use the Feynman Technique to explain [concept]. Simplify until a total stranger could explain it back to you.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Explain [topic] using only a story or metaphor. No technical terms. The metaphor should accurately map to how [topic] works.</code></pre></div>
+                        <h4 class="prompt-sub-heading">📝 Study & Research</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a 5-question multiple-choice quiz about [topic]. Each question should test understanding of a key concept. Include answers and brief explanations.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I'm learning [subject]. Create a study guide with: key terms, main concepts, practice questions, and common mistakes. Focus on [specific area].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Summarize the key arguments of [book/paper/article] about [topic]. Include: main thesis, 3 supporting arguments, and one counterargument.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I need to research [topic] for [purpose]. Give me a structured research outline with key questions to answer and reliable source types to seek.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create 20 flashcard Q&A pairs to memorize [subject/topic]. Make questions test application, not just recall.</code></pre></div>
+                        <h4 class="prompt-sub-heading">🎯 Skill Development</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Teach me [skill] from scratch. I have [X hours/days] to learn. Create a step-by-step learning path with resources and milestones.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I want to improve my [skill]. Current level: [beginner/intermediate]. Design a 4-week intensive practice plan with daily exercises.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>What are the 20% of concepts in [skill/subject] that give 80% of the results? List them and explain why each is high-leverage.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Give me 5 deliberate practice exercises for improving [specific skill]. Each should push me slightly beyond my current comfort zone.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a project-based learning plan for [skill]. Give me 3 progressively harder projects that will solidify my understanding.</code></pre></div>
+                        <h4 class="prompt-sub-heading">🏫 Teaching & Assessment</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Compare and contrast [Concept A] vs [Concept B]. Create a comparison table highlighting differences, similarities, pros, and cons of each.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a beginner's guide to [topic]. Include: what it is, why it matters, how to get started, common pitfalls, and next steps.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a lesson plan for teaching [topic] to [audience]. Include: learning objectives, activities, timing, and a way to measure understanding.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate 10 thought-provoking discussion questions about [book/topic/event]. Questions should promote critical thinking, not just recall.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I just learned [concept]. Quiz me with 5 progressively harder questions to check my understanding. Provide detailed feedback on my answers.</code></pre></div>
+                    </div>
+
+                    <!-- Technical & Coding Prompts -->
+                    <h3 class="text-2xl font-semibold mt-10 mb-2 text-indigo-700 category-header" data-category="technical">💻 Technical & Coding</h3>
+                    <div class="category-group" data-category="technical">
+                        <h4 class="prompt-sub-heading">⌨️ Code Writing</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a [language] function that [task]. Include: clear comments, error handling, and an example of how to use it.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a [language] script that reads [input] and outputs [output]. Make it production-ready with logging and error handling.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a REST API endpoint in [framework] for [resource]. Include: route, controller, input validation, and example request/response.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a SQL query to [task] from a table with these columns: [columns]. Optimize for performance and explain your approach.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Build a [type] component in [React/Vue/Svelte] that [functionality]. Props: [list]. Include TypeScript types and usage example.</code></pre></div>
+                        <h4 class="prompt-sub-heading">🐛 Debugging & Code Review</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I'm getting this error: [paste error]. Here's my code: [paste code]. Identify the problem and provide a corrected version with explanation.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Review this code: [paste code]. Check for: bugs, security vulnerabilities, performance issues, and code style. Rate quality 1-10.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>My [function/algorithm] is too slow. Here's the code: [paste]. Identify bottlenecks and rewrite for optimal time/space complexity.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Debug this [language] code and suggest optimizations: [paste code]. Identify inefficiencies and provide an improved version.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I have a race condition in [describe situation]. Here's the relevant code: [paste]. Explain the issue and propose a thread-safe solution.</code></pre></div>
+                        <h4 class="prompt-sub-heading">🏗️ Architecture & Design</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Explain the difference between [Concept A] and [Concept B] in [technology]. Use a comparison table with pros, cons, and when to use each.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design the system architecture for a [system/app]. Consider: scalability, security, and performance. Describe components and how they interact.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>I need to choose between [Option A] and [Option B] for [use case]. Give me a detailed technical comparison with a clear recommendation.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a database schema for [application]. Include: tables, relationships, indexes, and explain your normalization decisions.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>What design patterns should I use for [problem/system]? Explain each pattern, when to use it, and show a code skeleton example.</code></pre></div>
+                        <h4 class="prompt-sub-heading">📋 Documentation & Testing</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Generate sample [data format] for [purpose]. Include [X] records with realistic, diverse data. Format: [JSON/CSV/XML].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write unit tests for this function: [paste code]. Cover: happy path, edge cases, and error conditions. Use [Jest/pytest/etc.].</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write technical documentation for this API: [paste API spec]. Include: description, parameters, response schema, and usage examples.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a README for this project: [describe project]. Include: what it does, setup instructions, usage examples, and contribution guide.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a code review checklist for [language/framework] projects. Cover: correctness, security, performance, maintainability, and testing.</code></pre></div>
+                    </div>
+
+                    <!-- Business & Strategy Prompts -->
+                    <h3 class="text-2xl font-semibold mt-10 mb-2 text-indigo-700 category-header" data-category="business">💼 Business & Strategy</h3>
+                    <div class="category-group" data-category="business">
+                        <h4 class="prompt-sub-heading">🔎 Market & Competitive Analysis</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Act as a business consultant. What are the top 3 risks for a [business type] and how can I mitigate them? Consider: market, operations, finance.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Analyze my competitor: [company/product]. Identify their strengths, weaknesses, market positioning, and pricing. What's my competitive advantage?</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Conduct a PESTLE analysis for [industry/company] operating in [market]. Identify the most significant threats and opportunities in each dimension.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Identify the top 5 trends shaping [industry] over the next 3 years. For each: describe the trend, its impact, and how a business can capitalize on it.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Research this customer segment: [demographic/psychographic description]. What are their top 3 pains, desires, and buying triggers?</code></pre></div>
+                        <h4 class="prompt-sub-heading">🗺️ Planning & Strategy</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a business plan outline for [business idea]. Include: executive summary, market analysis, financial projections, marketing strategy, operations plan.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a 90-day action plan to achieve [business goal]. Break into monthly objectives, weekly tasks, and key metrics to track.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Draft an investor pitch for my [startup/business]. It should be compelling, highlight the market opportunity, and explain why I'm the right team.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me define OKRs for [team/company/quarter]. I want to achieve [goal]. Write 3 Objectives with 3 Key Results each.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Design a go-to-market strategy for [product/service]. Cover: target audience, pricing, distribution, messaging, and launch sequencing.</code></pre></div>
+                        <h4 class="prompt-sub-heading">📈 Sales & Marketing</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Analyze my product/service: [description]. Identify strengths, weaknesses, opportunities, threats (SWOT). Provide actionable recommendations.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a cold outreach email sequence (3 emails) for selling [product/service] to [target audience]. Each email should have a clear, non-pushy CTA.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a content marketing calendar for [brand] for [month]. Include 20 post ideas across [platforms], content types, and primary goals.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write ad copy for [product/service]. Target: [audience]. Goal: [clicks/conversions/awareness]. Create A/B test variants with different angles.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me write a client case study for [project]. Structure: problem, solution, results (with metrics). Tone: professional and persuasive.</code></pre></div>
+                        <h4 class="prompt-sub-heading">⚙️ Operations & Finance</h4>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a KPI dashboard outline for a [type of business]. List the 10 most important metrics, how to measure them, and target benchmarks.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Write a job description for a [role] at [company type]. Include: responsibilities, required skills, nice-to-haves, and a compelling culture pitch.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Help me write a vendor contract scope of work for [service]. Include: deliverables, timeline, payment terms, and revision policy.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Create a simple financial model structure for [business type]. Include: revenue streams, cost of goods, operating expenses, and key assumptions.</code></pre></div>
+                        <div class="prompt-block my-4"><button class="copy-btn" onclick="copyPrompt(this)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button><pre><code>Draft a performance review template for [role]. Include: self-assessment, manager rating, goal achievement summary, and development plan.</code></pre></div>
+                    </div>
+
+                </section>
+
+                <!-- Footer -->
+                <footer class="border-t border-slate-200 pt-12 mt-20 text-center text-slate-600">
+                    <p class="mb-4">🚀 Ready to master prompting? Start with the fundamentals and practice daily!</p>
+                    <p class="text-sm">Made with ❤️ for the AI-curious. Feel free to share and adapt these resources.</p>
+                    <div class="flex justify-center gap-4 mt-6">
+                        <a href="#intro" class="text-indigo-600 hover:text-indigo-700 font-semibold">Back to Top</a>
+                        <a href="https://github.com/YOUR_USERNAME/YOUR_REPO" target="_blank" class="text-indigo-600 hover:text-indigo-700 font-semibold">GitHub</a>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scroll-top">↑</button>
+
+    <script>
+        // --- Dark Mode Toggle ---
+        const darkToggle = document.getElementById('dark-toggle');
+        const darkToggleLg = document.getElementById('dark-toggle-lg');
+        const html = document.documentElement;
+        const themeIcon = document.getElementById('theme-icon');
+
+        function toggleDarkMode() {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+                if (themeIcon) themeIcon.textContent = '🌙';
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+                if (themeIcon) themeIcon.textContent = '☀️';
+            }
+        }
+
+        // Load saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            html.classList.add('dark');
+            if (themeIcon) themeIcon.textContent = '☀️';
+        }
+
+        darkToggle?.addEventListener('click', toggleDarkMode);
+        darkToggleLg?.addEventListener('click', toggleDarkMode);
+
+        // --- Copy to Clipboard Functionality ---
+        function copyPrompt(button) {
+            const promptBlock = button.closest('.prompt-block');
+            const code = promptBlock.querySelector('pre');
+            const textToCopy = code.innerText;
+
+            const svgCopy = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+            const svgCheck = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+
+            const doSuccess = () => {
+                button.innerHTML = svgCheck;
+                setTimeout(() => { button.innerHTML = svgCopy; }, 2000);
+            };
+            const doFail = () => {
+                button.innerText = 'Failed!';
+                setTimeout(() => { button.innerHTML = svgCopy; }, 2000);
+            };
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(textToCopy).then(doSuccess).catch(doFail);
+            } else {
+                // Fallback for non-HTTPS environments
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                textArea.style.position = 'fixed';
+                textArea.style.opacity = '0';
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    doSuccess();
+                } catch (err) {
+                    doFail();
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        // --- Active Link highlighting on Scroll ---
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('#table-of-contents a');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href').substring(1) === entry.target.id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-30% 0px -70% 0px' });
+        sections.forEach(section => observer.observe(section));
+
+        // --- Mobile Menu Toggle ---
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const backdrop = document.getElementById('sidebar-backdrop');
+        const navLinksMobile = document.querySelectorAll('#table-of-contents a');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            backdrop.classList.add('visible');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            backdrop.classList.remove('visible');
+            document.body.style.overflow = '';
+        }
+
+        menuBtn.addEventListener('click', openSidebar);
+        backdrop.addEventListener('click', closeSidebar);
+        navLinksMobile.forEach(link => {
+            link.addEventListener('click', closeSidebar);
+        });
+
+        // --- Scroll to Top Button ---
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Quiz Functionality ---
+        const quizForm = document.getElementById('prompt-quiz');
+        const quizResults = document.getElementById('quiz-results');
+        const correctAnswers = {
+            q1: 'b',
+            q2: 'c',
+            q3: 'b',
+            q4: 'b',
+            q5: 'b'
+        };
+
+        quizForm.addEventListener('submit', event => {
+            event.preventDefault();
+            let score = 0;
+            const userAnswers = new FormData(quizForm);
+
+            for (let [question, answer] of userAnswers.entries()) {
+                if (answer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            const totalQuestions = Object.keys(correctAnswers).length;
+            let feedback = `You scored ${score} out of ${totalQuestions}!`;
+            let emoji = '';
+
+            if (score === totalQuestions) {
+                feedback += " 🏆 Excellent work, you're a prompt pro!";
+                emoji = '🏆';
+            } else if (score >= totalQuestions / 2) {
+                feedback += " ✅ Great job! You've got a solid understanding.";
+                emoji = '✅';
+            } else {
+                feedback += " 📚 Good start! Review the chapters to become a master.";
+                emoji = '📚';
+            }
+
+            quizResults.innerHTML = `<div class="text-lg font-semibold">${emoji} ${feedback}</div>`;
+            quizResults.classList.remove('hidden');
+        });
+
+        // --- Search Functionality ---
+        const searchInput = document.getElementById('search-input');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            navLinks.forEach(link => {
+                const text = link.innerText.toLowerCase();
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    link.style.display = 'block';
+                } else {
+                    link.style.display = 'none';
+                }
+            });
+        });
+
+        // --- Reading Progress Bar ---
+        const progressBar = document.getElementById('reading-progress');
+        const mainContent = document.querySelector('main');
+        mainContent.addEventListener('scroll', () => {
+            const scrollTop = mainContent.scrollTop;
+            const scrollHeight = mainContent.scrollHeight - mainContent.clientHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            progressBar.style.width = progress + '%';
+        });
+
+        // --- Filter Prompts by Category ---
+        function filterPrompts(category, btn) {
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            // Show/hide categories
+            document.querySelectorAll('.category-group').forEach(group => {
+                group.style.display = (category === 'all' || group.dataset.category === category) ? 'block' : 'none';
+            });
+
+            document.querySelectorAll('.category-header').forEach(header => {
+                header.style.display = (category === 'all' || header.dataset.category === category) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
