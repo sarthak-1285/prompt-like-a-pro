@@ -125,8 +125,3 @@ This project is open-source under the [MIT License](LICENSE).
 
 ---
 
-## 📄 License
-
-This project is open-source under the [MIT License](LICENSE).
-
-> Made with ❤️ for the AI-curious. Feel free to share and adapt.
