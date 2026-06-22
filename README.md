@@ -16,7 +16,7 @@
 
 <br/>
 
-**[🚀 View Live Demo](https://YOUR_USERNAME.github.io/prompt-like-a-pro/) · [📖 Read the Guide](#-content-sections) · [🤝 Contribute](#-contributing)**
+**[🚀 View Live Demo](https://sarthak-1285.github.io/prompt-like-a-pro/) · [📖 Read the Guide](#-content-sections) · [🤝 Contribute](#-contributing)**
 
 </div>
 
